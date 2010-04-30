@@ -1,0 +1,17 @@
+#!/bin/sh
+
+VN=$(git describe --abbrev=8 HEAD 2>/dev/null)
+case "$VN" in
+v[0-9]*) : happy ;;
+*)       exit 1  ;;
+esac
+
+dirty=$(sh -c 'git diff-index --name-only HEAD' 2>/dev/null) || dirty=
+case "$dirty" in
+'')
+	;;
+*)
+	VN="$VN-dirty" ;;
+esac
+
+echo $VN
