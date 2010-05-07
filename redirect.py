@@ -36,7 +36,7 @@ def _CreateApplication():
     (r'^/admin/upload$',     UploadForm),
     (r'^/admin/upload_url$', UploadUrlHandler),
     (r'^/admin/store$',      StoreFile),
-    (r'^/admin/flush_all$',  FlushAll),
+### (r'^/admin/flush_all$',  FlushAll),
 ### (r'^/admin/rm_all$',     DeleteAll),
 
     (r'^(/.*)', RedirectQuery),
