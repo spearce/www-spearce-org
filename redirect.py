@@ -45,6 +45,9 @@ def _CreateApplication():
 
 
 class RedirectQuery(blobstore_handlers.BlobstoreDownloadHandler):
+  def head(self, name):
+    self.get(name)
+
   def get(self, name):
     h = self.request.host
     name = urllib2.unquote(name)
