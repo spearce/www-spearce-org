@@ -93,7 +93,7 @@ class RedirectQuery(blobstore_handlers.BlobstoreDownloadHandler):
 
     if self.request.headers.has_key('If-Modified-Since'):
       ims = self.request.headers.get('If-Modified-Since')
-      if ims == last_modified_string:
+      if ims == last_mod:
         self.error(304)
         return
       modsince = datetime.datetime.strptime(ims, "%a, %d %b %Y %H:%M:%S %Z")
